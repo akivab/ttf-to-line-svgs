@@ -1,0 +1,7 @@
+<style>
+img {
+  width: 256px;
+  height: auto
+}
+</style>
+

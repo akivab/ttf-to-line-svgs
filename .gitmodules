@@ -1,0 +1,3 @@
+[submodule "svg"]
+	path = svg
+	url = git@github.com:/akivab/svg

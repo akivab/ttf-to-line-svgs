@@ -1,0 +1,6 @@
+*.svg
+line_svgs/
+glyph_svgs/
+.DS_Store
+
+
