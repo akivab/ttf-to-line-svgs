@@ -1,25 +1,25 @@
 #!/usr/local/bin/python
 # coding: utf-8
-import sys
 import os
-import errno
+import sys
+from mkdir_p import mkdir_p
 from xml.dom import minidom
 
-GLYPH_DIR = 'glyph_svgs'
-def mkdir_p(path):
-    try:
-        os.makedirs(path)
-    except OSError as exc:  # Python >2.5
-        if exc.errno == errno.EEXIST and os.path.isdir(path):
-            pass
-        else:
-            raise
-1
+DEFAULT_GLYPH_DIR = 'glyph_svgs'
+
 if len(sys.argv) < 2:
     print 'specify svg input'
     exit(1)
+
 doc = minidom.parse(sys.argv[1])
-outputDir = sys.argv[2] if len(sys.argv) == 3 else '{}/{}'.format(GLYPH_DIR, os.path.basename(sys.argv[1]).split('.')[0])
+
+if len(sys.argv) == 3:
+    outputDir = sys.argv[2]
+else:
+    outputDir = '{}/{}'.format(DEFAULT_GLYPH_DIR, os.path.basename(sys.argv[1]).split('.')[0])
+
+print 'Saving glyphs to', outputDir
+
 mkdir_p(outputDir)
 glyphs = doc.getElementsByTagName('glyph')
 

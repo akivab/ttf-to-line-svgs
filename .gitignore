@@ -2,5 +2,8 @@
 line_svgs/
 glyph_svgs/
 .DS_Store
+*.pyc
+.idea
+
 
 
