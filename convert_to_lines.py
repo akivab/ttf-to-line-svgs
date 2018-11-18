@@ -41,5 +41,6 @@ def convert_dir(oldDir, newDir):
 
 if __name__ == '__main__':
     oldDir = sys.argv[1]
-    newDir = '{}/{}'.format(lineDir, os.path.basename(os.path.dirname(oldDir)))
+    newDir = '{}/{}'.format(lineDir, os.path.basename(oldDir))
+    print 'Saving line glyphs to', newDir
     convert_dir(oldDir, newDir)
