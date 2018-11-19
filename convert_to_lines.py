@@ -42,7 +42,13 @@ def convert_dir(oldDir, newDir):
 
 
 if __name__ == '__main__':
-    oldDir = sys.argv[1]
-    newDir = '{}/{}'.format(lineDir, os.path.basename(oldDir))
-    print 'Saving line glyphs to', newDir
-    convert_dir(oldDir, newDir)
+    arg = sys.argv[1]
+    filename = os.path.basename(arg)
+    if os.path.isdir(arg):
+        oldDir = sys.argv[1]
+        newDir = '{}/{}'.format(lineDir, filename)
+        print 'Saving line glyphs to', newDir
+        convert_dir(oldDir, newDir)
+    elif os.path.isfile(arg):
+        print 'converting svg', arg, 'to file', filename
+        convert_svg(arg, filename)
