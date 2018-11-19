@@ -19,9 +19,8 @@ def convert_svg(inputFilename, outputFilename):
     bounds = mySvg.bbox()
     mySvg.translate((-bounds[0].x, -bounds[0].y))
     mySvg.scale(min(width / (bounds[1].x - bounds[0].x), height / (bounds[1].y - bounds[0].y)))
-    path = mySvg.flatten()[0].simplify(100, 1)
     strokeColor = 'currentcolor'
-    fillColor = 'white'
+    fillColor = 'none'
     for path in mySvg.flatten():
         for stroke in path.simplify(100, 1):
             f.write('<path d="')

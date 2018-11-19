@@ -51,7 +51,7 @@ def generate_index_files(forDir=None):
             html_path = '{}/{}.html'.format(line_svg_dirname, dirname)
             html_fd = open(html_path, 'w')
             html_fd.write(HEADER)
-            for filename in os.listdir(dirpath):
+            for filename in sorted(os.listdir(dirpath)):
                 html_fd.write('<img src="{}/{}" />'.format(dirpath, filename))
             html_fd.close()
             print 'generated index file {}'.format(html_path)
