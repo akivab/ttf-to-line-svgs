@@ -9,8 +9,9 @@ if len(sys.argv) < 2:
     print 'requires input folder of svg to convert'
     exit()
 
-lineDir='line_svgs'
+lineDir = 'line_svgs'
 width, height = (128, 128)
+
 
 def convert_svg(inputFilename, outputFilename):
     mySvg = svg.Svg(inputFilename)
@@ -24,10 +25,12 @@ def convert_svg(inputFilename, outputFilename):
     for path in mySvg.flatten():
         for stroke in path.simplify(100, 1):
             f.write('<path d="')
-            f.write(''.join(['M{} {}'.format(stroke[0].x, stroke[0].y), ' '.join(['L{} {}'.format(i.x, i.y) for i in stroke[1:]])]))
+            f.write(''.join(
+                ['M{} {}'.format(stroke[0].x, stroke[0].y), ' '.join(['L{} {}'.format(i.x, i.y) for i in stroke[1:]])]))
             f.write('" style="stroke: {}; fill: {}"></path>'.format(strokeColor, fillColor))
     f.write('</svg>')
     f.close()
+
 
 def convert_dir(oldDir, newDir):
     mkdir_p(newDir)
