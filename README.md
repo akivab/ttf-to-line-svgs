@@ -21,7 +21,7 @@ Usage:
 ------
 
 ```
-  ./ttf_to_line_svgs.sh <ttf or otf file>
+  ./ttf_to_line_svgs.sh emoji-fonts/EmojiOneColor.otf
 ```
 
 The output directory is currently ```line_svgs```, where a directory with 
